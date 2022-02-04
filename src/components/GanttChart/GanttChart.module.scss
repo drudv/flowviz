@@ -1,0 +1,8 @@
+.tooltip {
+  padding: 5px 10px;
+  background-color: #fffbe4;
+
+  .tooltip-prop:not(:last-child) {
+    margin-bottom: 10px;
+  }
+}

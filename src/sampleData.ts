@@ -2,36 +2,55 @@ import { ITask } from './types';
 
 export const SAMPLE_TASKS: ITask[] = [
   {
-    taskCode: 'A610360338',
-    operationName: 'Close Forms',
-    elementName: 'B1_A_L5_Core Wall',
+    taskCode: 'A000000001',
+    operationName: 'Excavate',
+    elementName: 'Core Wall',
     duration: 16,
-    startHours: 1741,
-    endHours: 1837,
+    startHours: 0,
+    endHours: 16,
     crew: {
-      name: 'C_Carpenter Crew',
-      assignment: 1,
-    },
-    equipment: [],
-    dependencies: ['A163819636'],
-  },
-  {
-    taskCode: 'A913134247',
-    operationName: 'Pour Concrete',
-    elementName: 'B1_A_L5_Core Wall',
-    duration: 8,
-    startHours: 1837,
-    endHours: 1861,
-    crew: {
-      name: 'C_Concrete Crew',
+      name: 'Brigade 1',
       assignment: 1,
     },
     equipment: [
       {
-        name: 'Concrete Pump',
+        name: 'Excavator',
         quantity: 1,
       },
     ],
-    dependencies: ['A610360338'],
+    dependencies: [],
+  },
+  {
+    taskCode: 'A000000002',
+    operationName: 'Backfill and Compaction',
+    elementName: '',
+    duration: 24,
+    startHours: 24,
+    endHours: 48,
+    crew: {
+      name: 'Brigade 2',
+      assignment: 1,
+    },
+    equipment: [
+      {
+        name: 'Tandem Roller',
+        quantity: 1,
+      },
+    ],
+    dependencies: ['A000000001'],
+  },
+  {
+    taskCode: 'A000000003',
+    operationName: 'Brick Laying',
+    elementName: '',
+    duration: 16,
+    startHours: 36,
+    endHours: 52,
+    crew: {
+      name: 'Brigade 3',
+      assignment: 1,
+    },
+    equipment: [],
+    dependencies: ['A000000001', 'A000000002'],
   },
 ];

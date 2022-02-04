@@ -13,5 +13,5 @@ export interface ITask {
     name: string;
     quantity: number;
   }>;
-  dependencies: string[];
+  dependencies?: string[];
 }
