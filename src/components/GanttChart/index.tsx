@@ -17,7 +17,6 @@ const GANTT_COMMON_PROPS = {
     { name: 'workers', label: 'Crew', width: '45px' },
   ],
   tooltip: (task: any) => {
-    console.log('task', task['$x']);
     try {
       const details = JSON.parse(task.detailsJSON);
       return (

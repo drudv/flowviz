@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { Button, Modal, Upload, Input, Form, Typography } from 'antd';
 import { UploadOutlined } from '@ant-design/icons';
+import styles from './TaskUploader.module.scss';
 import { ITask } from '../../types';
 
 const { TextArea } = Input;
@@ -71,7 +72,9 @@ const TaskUploader = ({ isVisible, onOk, onCancel }: ITaskUploadProps) => {
         >
           <Button icon={<UploadOutlined />}>Click to Upload</Button>
         </Upload>
-        <p style={{ marginTop: 15 }}>or paste tasks into the text box:</p>
+        <p className={styles['textbox-desc']}>
+          or paste tasks into the text box:
+        </p>
         <Form.Item
           name="tasksJSON"
           rules={[
