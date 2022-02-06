@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Button, Modal, Upload, Input, Form, Typography } from 'antd';
+import { Button, Modal, Upload, Input, Form } from 'antd';
 import { UploadOutlined } from '@ant-design/icons';
 import styles from './TaskUploader.module.scss';
 import { ITask } from '../../types';
@@ -20,6 +20,11 @@ class ValidationError extends Error {
   }
 }
 
+export const testIds = {
+  tasksUpload: 'tasks-upload',
+  tasksJSON: 'tasks-json',
+};
+
 export function parseTasks(tasksJSON: string): ITask[] {
   try {
     return JSON.parse(tasksJSON);
@@ -34,7 +39,7 @@ const TaskUploader = ({ isVisible, onOk, onCancel }: ITaskUploadProps) => {
 
   useEffect(() => {
     form.resetFields();
-  }, [isVisible]);
+  }, [form, isVisible]);
 
   return (
     <Modal
@@ -70,7 +75,9 @@ const TaskUploader = ({ isVisible, onOk, onCancel }: ITaskUploadProps) => {
             return false;
           }}
         >
-          <Button icon={<UploadOutlined />}>Click to Upload</Button>
+          <Button data-testid={testIds.tasksUpload} icon={<UploadOutlined />}>
+            Click to Upload
+          </Button>
         </Upload>
         <p className={styles['textbox-desc']}>
           or paste tasks into the text box:
@@ -85,7 +92,7 @@ const TaskUploader = ({ isVisible, onOk, onCancel }: ITaskUploadProps) => {
             },
           ]}
         >
-          <TextArea rows={10} />
+          <TextArea rows={10} data-testid={testIds.tasksJSON} />
         </Form.Item>
       </Form>
     </Modal>

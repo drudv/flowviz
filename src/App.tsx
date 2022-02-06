@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState } from 'react';
 import moment from 'moment';
 import {
   PageHeader,
@@ -9,7 +9,8 @@ import {
   DatePicker,
 } from 'antd';
 import TaskUploader from './components/TaskUploader';
-import GanttChart, { DATE_FORMAT } from './components/GanttChart';
+import GanttChart from './components/GanttChart';
+import { DATE_FORMAT } from './components/GanttChart/constants';
 import { ITask } from './types';
 import { SAMPLE_TASKS } from './sampleData';
 import styles from './App.module.scss';
